@@ -1,12 +1,12 @@
 <template>
-    <div>
-        404Page
-    </div>
+  <div>
+    404Page
+  </div>
 </template>
 
 <script lang="ts">
 export default {
-    name: '404',
+  name: '404',
 }
 </script>
 

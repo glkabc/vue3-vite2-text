@@ -3,5 +3,6 @@
         "vite",
         "vitejs",
         "vuex"
-    ]
+    ],
+    "editor.tabSize": 2
 }
