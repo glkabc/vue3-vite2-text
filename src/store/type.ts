@@ -1,13 +1,12 @@
-interface User {
+export interface User {
   name: string;
   timeOut: number;
   id: string;
   token: string;
 }
 
-interface StoreDataType {
+export interface StoreDataType {
   user: User;
   count: number;
 }
 
-export type { User, StoreDataType };
