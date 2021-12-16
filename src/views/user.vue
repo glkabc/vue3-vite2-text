@@ -1,13 +1,18 @@
 <template>
-  <div>User Page</div>
+  <div>User Page {{name}}</div>
 </template>
 
 <script lang="ts">
+import { useRoute } from 'vue-router'
 export default {
   name: "User",
   setup() {
+    const name  = useRoute().params.name
     console.log("进到用户见面了么");
-  },
+    return {
+      name
+    }
+  }
 };
 </script>
 

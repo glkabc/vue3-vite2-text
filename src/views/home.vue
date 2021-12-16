@@ -1,8 +1,10 @@
 <template>
   <div>
     HOME PAGE
-    <button @click="add">跳转</button>
-    <router-link :to="'/login'">登录</router-link>
+    <button @click="add">跳转</button> | 
+    <router-link :to="'/login'">登录</router-link> | 
+    <router-link :to="'/home'">关于</router-link> |
+    <router-link to="/home/user">user</router-link> |
     <router-view></router-view>
   </div>
 </template>
@@ -25,7 +27,7 @@ export default {
     console.log(store.state)
     function add () {
       console.log('点击了')
-      router.push({path: '/home/user', replace: true})
+      router.push({name: 'user'})
     }
     return {
       add,

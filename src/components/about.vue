@@ -6,9 +6,15 @@
 </template>
 
 <script lang="ts">
+import { useRoute } from 'vue-router'
 export default ({
   name: 'About',
+  props: {
+    ifAh: String,
+  },
   setup() {
+    const params = useRoute().params
+    console.log(params.id)
     return {
       name: '水水水水'
     }
