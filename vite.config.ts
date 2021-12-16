@@ -1,21 +1,37 @@
-// const { resolve } = require('path')
-import { defineConfig } from 'vite'
+import { defineConfig, ConfigEnv, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { V_ON_WITH_KEYS } from '@vue/compiler-dom'
+import { resolve } from 'path'
 
-const Lis = V_ON_WITH_KEYS
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  server: {
-    port: 3333,
-  },
-  resolve: {
-    // alias: [
-    //   {
-    //     find: "@",
-    //     replacement: 
-    //   }
-    // ]
+// export default defineConfig({
+//   plugins: [vue()],
+//   server: {
+//     port: 3333,
+//   },
+//   resolve: {
+//     alias: [
+//       {
+//         find: "@",
+//         replacement: './src'
+//       }
+//     ]
+//   }
+// })
+
+export default defineConfig(({command, mode}) => {
+  console.log(command, mode)
+  return {
+    plugins: [vue()],
+    server: {
+      port: 3333,
+    },
+    resolve: {
+      alias: [
+        {
+          find: "@",
+          replacement: resolve(__dirname,'./src')
+        }
+      ]
+    }
   }
 })

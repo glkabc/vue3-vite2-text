@@ -11,6 +11,10 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

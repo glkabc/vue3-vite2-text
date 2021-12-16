@@ -1,5 +1,6 @@
 
 <template>
+  <!-- <router-link :to="'/home/user'">用户</router-link> -->
   <router-view></router-view>
 </template>
 

@@ -2,22 +2,28 @@
   <div>
     HOME PAGE
     <button @click="add">跳转</button>
-    <router-link to="/login">user</router-link>
+    <router-link :to="'/login'">登录</router-link>
     <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
-import { useStore} from 'vuex'
+import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import { StoreDataType } from '../store/type'
+import { StoreDataType } from '@/store/type'
+import { getDataList } from '@/api'
+import { onMounted } from 'vue'
 export default {
   name: 'Home',
   setup() {
     const store = useStore<StoreDataType>()
     const router = useRouter()
+    onMounted(async () => {
+      const data = await getDataList()
+      console.log(data)
+    })
     console.log(store.state)
-    const add = () => {
+    function add () {
       console.log('点击了')
       router.push({path: '/home/user', replace: true})
     }
