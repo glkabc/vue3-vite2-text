@@ -12,14 +12,14 @@ export default {
     return {
       name
     }
-  }
+  },
 };
 </script>
 
-<style lang="sss" scoped>
-div {
-  background-color: red;
-  width: 100px;
-  height: 100px;
-}
+<style lang="scss" scoped>
+  div {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+  }
 </style>

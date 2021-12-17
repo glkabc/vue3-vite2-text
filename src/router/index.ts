@@ -6,23 +6,30 @@ const routes =[
 		redirect: '/home',
 	},
 	{
-		path: '/home/:name?',
+		path: '/home',
 		name: 'home',
 		component: () => import('@/views/home.vue'),
 		children: [
 			{
 				path: '',
+				redirect: 'about',
+			},
+			{
+				path: 'about',
 				component: () => import('@/components/about.vue')
 			},
 			{
+				path: 'one',
+				component: () => import('@/views/userOne.vue')
+			},
+			{
 				path: 'user',
-				name: 'user',
 				component: () => import('@/views/user.vue')
 			},
 		]
 	},
 	{
-		path: '/about/:id',
+		path: '/about/:id?',
 		name: 'about',
 		component: () => import('@/components/about.vue')
 	},

@@ -3,8 +3,10 @@
     HOME PAGE
     <button @click="add">跳转</button> | 
     <router-link :to="'/login'">登录</router-link> | 
-    <router-link :to="'/home'">关于</router-link> |
-    <router-link to="/home/user">user</router-link> |
+    <br />
+    <router-link :to="'/home/about'">关于</router-link> |
+    <router-link :to="'/home/user'">user</router-link> |
+    <router-link :to="'/home/one'">user1</router-link> |
     <router-view></router-view>
   </div>
 </template>
@@ -39,7 +41,7 @@ export default {
 <style lang="scss" scoped>
   div {
     background-color: #2222;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 500px;
   }
 </style>
