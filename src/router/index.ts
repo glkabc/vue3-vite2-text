@@ -12,10 +12,6 @@ const routes =[
 		children: [
 			{
 				path: '',
-				redirect: 'about',
-			},
-			{
-				path: 'about',
 				component: () => import('@/components/about.vue')
 			},
 			{
@@ -27,11 +23,6 @@ const routes =[
 				component: () => import('@/views/user.vue')
 			},
 		]
-	},
-	{
-		path: '/about/:id?',
-		name: 'about',
-		component: () => import('@/components/about.vue')
 	},
 	{
 		path: '/login',
@@ -50,7 +41,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-	console.log(to, from)
+	// console.log(to, from)
+	console.log('发生了路由跳转')
 })
 
 export default router
