@@ -1,3 +1,4 @@
+import { RequestResponse } from "@/type"
 import axios, { ResponseType, AxiosRequestConfig, AxiosResponse, AxiosError } from "axios"
 
 const request = axios.create({
@@ -41,7 +42,7 @@ function removeInterceptor () {
   request.interceptors.request.eject(requestInterceptor);
 }
 
-async function requestData<T>(config: AxiosRequestConfig<T>) {
+async function requestData<T = RequestResponse<any>>(config: AxiosRequestConfig<T>) {
   return request(config)
 }
 
