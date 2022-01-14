@@ -2,9 +2,8 @@
   <div>
     HOME PAGE
     <br />
-    <button @click="add">跳转</button> | 
-    <router-link :to="'/login'">登录</router-link> | 
-    <router-link :to="'/ggp'">404页面</router-link> | 
+    <button @click="add">跳转</button> | <router-link :to="'/login'">登录</router-link> |
+    <router-link :to="'/ggp'">404页面</router-link> |
     <br />
     <router-link :to="'/home'">关于</router-link> |
     <router-link :to="'/home/one'">user1</router-link> |
@@ -16,24 +15,34 @@
 </template>
 
 <script lang="ts">
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
-import { StoreDataType } from '@/store/type'
-export default {
-  name: 'Home',
-  setup() {
-    const store = useStore<StoreDataType>()
-    const router = useRouter()
-    console.log(store.state)
-    function add () {
-      console.log('点击了')
-      router.push({name: 'user'})
-    }
-    return {
-      add,
-    }
-  },
-}
+  import { useStore } from "vuex";
+  import { useRouter } from "vue-router";
+  import { StoreDataType } from "@/store/type";
+  import { onMounted } from "vue";
+  import { nestJSApisTest } from "@/api";
+  export default {
+    name: "Home",
+    setup() {
+      const store = useStore<StoreDataType>();
+      const router = useRouter();
+      console.log(store.state);
+      function add() {
+        router.push({ name: "user" });
+      }
+      onMounted(async () => {
+        nestJSApisTest()
+          .then((res) => {
+            console.log(res, "请求回来的NestJS的后台数据");
+          })
+          .catch((err) => {
+            console.log(err, "请求出现错误");
+          });
+      });
+      return {
+        add,
+      };
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
