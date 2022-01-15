@@ -1,8 +1,12 @@
 import { RequestResponse } from "@/type";
 import axios, { ResponseType, AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
+const baseUrl =
+  typeof import.meta.env.VITE_PATH === "boolean"
+    ? "http://localhost:3000"
+    : import.meta.env.VITE_PATH;
 
 const request = axios.create({
-  baseURL: "http://10.7.109.158:3335",
+  baseURL: baseUrl,
   timeout: 20000,
   headers: {
     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",

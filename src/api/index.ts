@@ -19,7 +19,7 @@ async function getDataList() {
 }
 
 async function nestJSApisTest() {
-  return await fetch("http://10.7.109.158:3335/test/post?id=1&name=asas", {
+  return await fetch(`${baseUrl}/test/post?id=1&name=asas`, {
     method: "POST",
     body: JSON.stringify({ name: "ss" }),
   });
