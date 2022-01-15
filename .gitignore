@@ -5,3 +5,4 @@ dist-ssr
 *.local
 .env.development.local
 yarn-error.log
+mockServiceWorker.js
