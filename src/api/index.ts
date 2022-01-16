@@ -19,10 +19,34 @@ async function getDataList() {
 }
 
 async function nestJSApisTest() {
-  return await fetch(`${baseUrl}/test/post?id=1&name=asas`, {
+  return await fetch(`${baseUrl}/test/post?id=1&names=asas`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
     body: JSON.stringify({ name: "ss" }),
+  }).then((res) => res.json());
+}
+
+async function axiosNestJsApisTest() {
+  return await request({
+    method: "POST",
+    url: "/cats",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    data: {
+      type: "POST",
+      code: "0",
+    },
   });
 }
 
-export { getDataList, nestJSApisTest };
+async function axiosNestJsApisGetTest() {
+  return request({
+    method: "GET",
+    url: "/cats?name=ming",
+  });
+}
+
+export { getDataList, nestJSApisTest, axiosNestJsApisTest, axiosNestJsApisGetTest };

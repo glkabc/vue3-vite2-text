@@ -19,7 +19,7 @@
   import { useRouter } from "vue-router";
   import { StoreDataType } from "@/store/type";
   import { onMounted } from "vue";
-  import { nestJSApisTest } from "@/api";
+  import { axiosNestJsApisGetTest, axiosNestJsApisTest, nestJSApisTest } from "@/api";
   export default {
     name: "Home",
     setup() {
@@ -31,11 +31,26 @@
       }
       onMounted(async () => {
         nestJSApisTest()
-          .then((res) => {
-            console.log(res, "请求回来的NestJS的后台数据");
+          .then((data) => {
+            console.log(data, "fetch nestjs apis test data");
           })
           .catch((err) => {
             console.log(err, "请求出现错误");
+          });
+
+        axiosNestJsApisTest()
+          .then((res) => {
+            console.log(res.data, "axios nestjs apis test data");
+          })
+          .catch((err) => {
+            throw new Error(err);
+          });
+        axiosNestJsApisGetTest()
+          .then((res) => {
+            console.log(res.data, "axios nestjs apis get test data");
+          })
+          .catch((err) => {
+            throw new Error(err);
           });
       });
       return {
