@@ -49,4 +49,17 @@ async function axiosNestJsApisGetTest() {
   });
 }
 
-export { getDataList, nestJSApisTest, axiosNestJsApisTest, axiosNestJsApisGetTest };
+async function axiosNestHomeApiTest() {
+  return request({
+    method: "GET",
+    url: "/home",
+  });
+}
+
+export {
+  getDataList,
+  nestJSApisTest,
+  axiosNestJsApisTest,
+  axiosNestJsApisGetTest,
+  axiosNestHomeApiTest,
+};
