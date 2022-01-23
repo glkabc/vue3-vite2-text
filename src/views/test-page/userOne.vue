@@ -1,20 +1,12 @@
-<template>
-  <div>user 1</div>
-  <p>{{ name }}</p>
-  <p v-for="item in lists" :key="item.id">{{ item.title }}</p>
-  <n-button>naive-ui</n-button>
-  <n-date-picker></n-date-picker>
-</template>
-
 <script lang="ts">
-  import { onMounted, ref } from "@vue/runtime-core";
+  import { onMounted, ref, toRefs, defineComponent } from "vue";
   import { axiosNestHomeApiTest } from "@/api";
   interface List {
     id: string;
     title: string;
   }
 
-  export default {
+  export default defineComponent({
     name: "UserOne",
     setup() {
       const lists = ref<List[]>([]);
@@ -29,9 +21,19 @@
           });
       });
       return {
-        name: "user 1",
-        lists: lists,
+        ...toRefs({
+          name: "user 1",
+          lists: lists,
+        }),
       };
     },
-  };
+  });
 </script>
+
+<template>
+  <div>user 1</div>
+  <p>{{ name }}</p>
+  <p v-for="item in lists" :key="item.id">{{ item.title }}</p>
+  <n-button>naive-ui</n-button>
+  <n-date-picker></n-date-picker>
+</template>

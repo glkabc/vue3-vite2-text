@@ -18,9 +18,9 @@
   import { useStore } from "vuex";
   import { useRouter } from "vue-router";
   import { StoreDataType } from "@/store/type";
-  import { onMounted } from "vue";
+  import { onMounted, defineComponent } from "vue";
   import { axiosNestJsApisGetTest, axiosNestJsApisTest, nestJSApisTest } from "@/api";
-  export default {
+  export default defineComponent({
     name: "Home",
     setup() {
       const store = useStore<StoreDataType>();
@@ -57,7 +57,7 @@
         add,
       };
     },
-  };
+  });
 </script>
 
 <style lang="scss" scoped>

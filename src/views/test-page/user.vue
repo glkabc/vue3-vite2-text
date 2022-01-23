@@ -4,9 +4,9 @@
 
 <script lang="ts">
   import { useRoute } from "vue-router";
-  import { onMounted } from "vue";
+  import { onMounted, defineComponent } from "vue";
   import { getDataList } from "@/api";
-  export default {
+  export default defineComponent({
     name: "User",
     setup() {
       const name = useRoute().params.name;
@@ -19,7 +19,7 @@
         name,
       };
     },
-  };
+  });
 </script>
 
 <style lang="scss" scoped>

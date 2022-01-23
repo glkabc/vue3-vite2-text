@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    <h1>{{title}}</h1>
+    <h1>{{ title }}</h1>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: "Home",
-  setup() {
-    return {
-      title: '这是首页'
-    }
-  },
-}
+  import { defineComponent } from "vue";
+  export default defineComponent({
+    name: "Home",
+    setup() {
+      return {
+        title: "这是首页",
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
