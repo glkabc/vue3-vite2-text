@@ -8,6 +8,7 @@
     <router-link :to="'/home'">关于</router-link> |
     <router-link :to="'/home/one'">user1</router-link> |
     <router-link :to="'/home/user'">user</router-link> |
+    <router-link :to="'/home/virtual-list'">Virtual List</router-link> |
     <br />
     <router-view />
     <router-view name="footer" />
