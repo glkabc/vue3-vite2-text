@@ -46,6 +46,9 @@ async function axiosNestJsApisGetTest() {
   return request({
     method: "GET",
     url: "/cats?name=ming",
+    headers: {
+      user: "admin",
+    },
   });
 }
 
