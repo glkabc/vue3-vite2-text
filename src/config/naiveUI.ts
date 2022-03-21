@@ -1,4 +1,4 @@
-import { 
+import {
   create,
   GlobalThemeOverrides,
   NButton,
@@ -70,7 +70,7 @@ import {
   NGridItem,
   NSpace,
   NScrollbar,
-} from 'naive-ui'
+} from "naive-ui";
 
 const naive = create({
   components: [
@@ -143,14 +143,17 @@ const naive = create({
     NGridItem,
     NSpace,
     NScrollbar,
-  ]
-})
+  ],
+});
 
 const themeOverrides: GlobalThemeOverrides = {
+  DatePicker: {
+    itemSize: "30px",
+    itemTextColor: "rgba(47, 94, 140, 1)",
+    itemTextColorDisabled: "rgba(173, 34, 34, 1)",
+    itemTextColorCurrent: "#BFDACCFF",
+  },
+};
 
-}
-
-export {
-  themeOverrides,
-}
-export default naive
+export { themeOverrides };
+export default naive;
