@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <n-button @click="changeDirection">direction</n-button> |
+  <span>{{ speed }} 速度</span> | <n-button @click="changeDirection">direction</n-button> |
   <n-button @click="changeSpeed('up')">speed up</n-button> |
   <n-button @click="changeSpeed('down')">speed down</n-button>
 </template>
@@ -22,13 +22,14 @@
   export default defineComponent({
     name: "VirtualList",
     setup() {
-      const list = ref(Array.from({ length: 30 }, (_, i) => i));
+      const list = ref(Array.from({ length: 300000 }, (_, i) => i));
       const viewList = ref(list.value.filter((v, i) => i < 11));
       const tag = ref(viewList.value.length);
       const height = ref(84);
       const direction = ref(true);
       const speed = ref(30);
       const scrollTop = ref(direction.value ? 0 : height.value);
+      const interval = ref();
       function setItem() {
         direction.value
           ? viewList.value.push(list.value[tag.value])
@@ -40,7 +41,7 @@
       function AutoScroll() {
         setItem();
 
-        setInterval(() => {
+        interval.value = setInterval(() => {
           direction.value ? scrollTop.value++ : scrollTop.value--;
 
           if (scrollTop.value % height.value === 0) {
@@ -66,7 +67,12 @@
         }
       }
       function changeSpeed(type: "up" | "down") {
-        speed.value += 10;
+        speed.value =
+          type === "down" ? speed.value + 10 : speed.value - 2 < 0 ? 0 : speed.value - 2;
+        if (interval.value) {
+          clearInterval(interval.value);
+          AutoScroll();
+        }
       }
       onMounted(() => {
         AutoScroll();
@@ -74,6 +80,7 @@
       return {
         viewList,
         scrollTop,
+        speed,
         changeSpeed,
         changeDirection,
       };
